@@ -1,0 +1,55 @@
+04-Mar-25 18:23:51 - Logging initialized with filename: 04-03-2025-06-23-51-feature_extractorNone-anomaly_score_methodRF-datasetUNSW_XIIoT_WUST_CICIDS17-num_experiments3-train_epochs10-normalizeTrue-batch_size64-memory_modeNon
+04-Mar-25 18:23:53 - Note: NumExpr detected 28 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+04-Mar-25 18:23:54 - Using Device: cuda
+04-Mar-25 18:23:54 - Beginning experiment with settings: {'feature_extractor': ['None'], 'anomaly_score_method': ['RF'], 'metrics': ['trivial val 3 Std (F1)', 'trivial val 2 Std (F1)', 'trivial val 1 Std (F1)', 'best f1 (F1)', 'roc auc', 'pr auc'], 'dataset': ['UNSW', 'XIIoT', 'WUST', 'CICIDS17'], 'num_experiments': 3, 'train_epochs': 10, 'normalize': True, 'batch_size': 64, 'memory_mode': [None]}
+04-Mar-25 18:23:54 - Created results df with columns: ['Experiment Number', 'Train Experience', 'Test Experience']
+04-Mar-25 18:23:54 - Loading dataset: UNSW
+04-Mar-25 18:23:54 - Normalizing datastream UNSW
+04-Mar-25 18:23:54 - Loaded UNSW datastream with: 36 input features, 2 output features, 5 experiences,
+04-Mar-25 18:23:54 - Init normal shape: torch.Size([8312, 36])
+04-Mar-25 18:23:54 - Train experience 0 X shape: torch.Size([62659, 36])
+04-Mar-25 18:23:54 - Train experience 0 Y shape: torch.Size([62659])
+04-Mar-25 18:23:54 - Train experience 1 X shape: torch.Size([15241, 36])
+04-Mar-25 18:23:54 - Train experience 1 Y shape: torch.Size([15241])
+04-Mar-25 18:23:54 - Train experience 2 X shape: torch.Size([37652, 36])
+04-Mar-25 18:23:54 - Train experience 2 Y shape: torch.Size([37652])
+04-Mar-25 18:23:54 - Train experience 3 X shape: torch.Size([50226, 36])
+04-Mar-25 18:23:54 - Train experience 3 Y shape: torch.Size([50226])
+04-Mar-25 18:23:54 - Train experience 4 X shape: torch.Size([32971, 36])
+04-Mar-25 18:23:54 - Train experience 4 Y shape: torch.Size([32971])
+04-Mar-25 18:23:54 - Test experience 0 X shape: torch.Size([15643, 36])
+04-Mar-25 18:23:54 - Test experience 0 Y shape: torch.Size([15643])
+04-Mar-25 18:23:54 - Test experience 1 X shape: torch.Size([3842, 36])
+04-Mar-25 18:23:54 - Test experience 1 Y shape: torch.Size([3842])
+04-Mar-25 18:23:54 - Test experience 2 X shape: torch.Size([9442, 36])
+04-Mar-25 18:23:54 - Test experience 2 Y shape: torch.Size([9442])
+04-Mar-25 18:23:54 - Test experience 3 X shape: torch.Size([12564, 36])
+04-Mar-25 18:23:54 - Test experience 3 Y shape: torch.Size([12564])
+04-Mar-25 18:23:54 - Test experience 4 X shape: torch.Size([8197, 36])
+04-Mar-25 18:23:54 - Test experience 4 Y shape: torch.Size([8197])
+04-Mar-25 18:23:54 - Attacks in experience 0: ['Analysis', 'Generic', 'Normal']
+04-Mar-25 18:23:54 - Percetage of normal in experience 0: 0.213792
+04-Mar-25 18:23:54 - Attacks in experience 1: ['Backdoor', 'Normal']
+04-Mar-25 18:23:54 - Percetage of normal in experience 1: 0.878945
+04-Mar-25 18:23:54 - Attacks in experience 2: ['DoS', 'Normal', 'Reconnaissance']
+04-Mar-25 18:23:54 - Percetage of normal in experience 2: 0.355785
+04-Mar-25 18:23:54 - Attacks in experience 3: ['Exploits', 'Normal', 'Shellcode']
+04-Mar-25 18:23:54 - Percetage of normal in experience 3: 0.266714
+04-Mar-25 18:23:54 - Attacks in experience 4: ['Fuzzers', 'Normal', 'Worms']
+04-Mar-25 18:23:54 - Percetage of normal in experience 4: 0.406236
+04-Mar-25 18:23:54 - Beginning experiment 1/3
+04-Mar-25 18:23:54 - Created single experiment dataframe with columns: <NumpyExtensionArray>
+[      'Train Experience',        'Test Experience', 'trivial val 3 Std (F1)',
+ 'trivial val 2 Std (F1)', 'trivial val 1 Std (F1)',           'best f1 (F1)',
+                'roc auc',                 'pr auc']
+Length: 8, dtype: object
+04-Mar-25 18:23:54 - Traceback (most recent call last):
+  File "<ipython-input-1-299c2e7c792b>", line 67, in <module>
+    main.run_experiments(experiment, device)
+  File "c:\Users\seant\Desktop\Current Programs\CND-IDS\main.py", line 50, in run_experiments
+    df = run_single_experiment(config, datastream, device)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\seant\Desktop\Current Programs\CND-IDS\main.py", line 150, in run_single_experiment
+    raise ValueError(f"Feature extractor {f_e} is invalid")
+ValueError: Feature extractor None is invalid
+
