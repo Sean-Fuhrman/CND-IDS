@@ -1,2 +1,6 @@
 results/*
 time_results/*
+data/*
+
+__pycache__/*
+*.pyc
