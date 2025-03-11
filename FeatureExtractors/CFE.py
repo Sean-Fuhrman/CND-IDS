@@ -1,7 +1,7 @@
 from torch import nn
-from .CNDIDS import ADCNbasic
-from .CNDIDS.model import simpleMPL 
-from .CNDIDS.memory import Memory
+from .modules import ADCNbasic
+from .modules.model import simpleMPL 
+from .modules.memory import Memory
 import time
 import logging
 import torch

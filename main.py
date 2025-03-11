@@ -100,7 +100,6 @@ def run_single_experiment(config,datastream, device):
     logger.info("Created single experiment dataframe with columns: %s", df.columns.array)
     f_e = config['feature_extractor']
     if f_e == None:
-        
         f_e = PassThroughExtractor(datastream, config)
         logger.info("Using PassThroughExtractor")
     elif f_e == "ADCN":
@@ -119,33 +118,11 @@ def run_single_experiment(config,datastream, device):
     elif f_e == "CFE":
         from FeatureExtractors.CFE import CFE
         f_e = CFE(datastream, config, device)
-    elif f_e == "CFEM":
-        from FeatureExtractors.CFEM import CFE
-        f_e = CFE(datastream, config, device)
-    elif f_e == "MetCon":
-        from FeatureExtractors.Met_Con import Met_Con
-        f_e = Met_Con(nFeatures=datastream.nInput, batch_size=config['batch_size'], nLatent=96)
-    elif f_e == "Met2":
-        from FeatureExtractors.Met2 import Met2
-        f_e = Met2(datastream)
-    elif f_e == "Met2LwF":
-        from FeatureExtractors.Met2LwF import Met2LwF
-        f_e = Met2LwF(datastream)
-    elif f_e == "CFEMet2":
-        from FeatureExtractors.CFEMet2 import CFEMet2
-        f_e = CFEMet2(datastream, config, device)
-    elif f_e == "Met2LwFBig":
-        from FeatureExtractors.Met2LwFBig import Met2LwF
-        f_e = Met2LwF(datastream)
-    elif f_e == "Met2LwFRecon":
-        from FeatureExtractors.Met2LwFRecon import Met2LwF
-        f_e = Met2LwF(datastream, train_epochs=config['train_epochs'])
-    elif f_e == "LwFRecon":
-        from FeatureExtractors.LwFRecon import Met2LwF
-        f_e = Met2LwF(datastream, train_epochs=config['train_epochs'])
-    elif f_e == "Met2Recon":
-        from FeatureExtractors.Met2Recon import Met2Recon
-        f_e = Met2Recon(datastream, train_epochs=config['train_epochs'])
+        logger.info("Using CFE")
+    elif f_e == "CND-IDS":
+        from FeatureExtractors.CND_IDS import CND_IDS
+        f_e = CND_IDS(datastream, config, device)
+        logger.info("Using CND-IDS")
     else:
         raise ValueError(f"Feature extractor {f_e} is invalid")
 
@@ -154,10 +131,6 @@ def run_single_experiment(config,datastream, device):
     if a_s_m == None:
         if f_e == "ADCN":
             df = run_ADCN(datastream, config, df)
-            return df
-        elif f_e == "VaDE":
-            df = run_VaDE(datastream, config, df)
-            config['metrics'] = ['F1', 'ACC']
             return df
         else:
             raise ValueError("Anomaly score method must be specified if feature extractor is not ADCN")

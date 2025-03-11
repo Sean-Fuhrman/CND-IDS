@@ -3,14 +3,12 @@ import torch.nn as nn
 import logging
 from pytorch_metric_learning import distances, losses, miners, reducers
 from tqdm import tqdm
-from sklearn.cluster import HDBSCAN
-from .CNDIDS.K_Means import K_Means
-from .CNDIDS.sampler import NNBatchSampler
+from .modules.K_Means import K_Means
 from copy import deepcopy as deepclone
 
 logger = logging.getLogger()
 
-class Met2LwF(torch.nn.Module):
+class CND_IDS(torch.nn.Module):
     
     def __init__(self, datastream, nLatent=30, train_epochs=20):
         super().__init__()

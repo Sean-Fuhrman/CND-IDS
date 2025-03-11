@@ -3,7 +3,7 @@ import logging
 from pytorch_metric_learning import distances, losses, miners, reducers
 from tqdm import tqdm
 from sklearn.cluster import HDBSCAN
-from .CNDIDS.sampler import NNBatchSampler
+from .modules.sampler import NNBatchSampler
 import os
 logger = logging.getLogger()
 
