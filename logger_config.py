@@ -9,6 +9,7 @@ def sanitize_filename(filename):
     for char in invalid_chars:
         filename = filename.replace(char, '')
     return filename
+
 def init_logs(experiment):
     #Create log file based on config
     if not os.path.exists("logs"):

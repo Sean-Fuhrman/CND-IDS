@@ -34,7 +34,7 @@ ADCN_label_mode: "random", ---- More options in datastream
 '''
 
 experiment = {
-    'feature_extractor': [None],
+    'feature_extractor': ["CND_IDS"],
     'anomaly_score_method': ["PCA"],
     'metrics': ["trivial val 3 Std (F1)", "trivial val 2 Std (F1)",  "trivial val 1 Std (F1)", "best f1 (F1)", "roc auc", "pr auc"],
     'dataset': ["UNSW","XIIoT","WUST", "CICIDS17"],
@@ -42,7 +42,6 @@ experiment = {
     'train_epochs': 10,
     'normalize': True,
     'batch_size': 64,
-    'memory_mode': [None],
     }
 
 import logger_config
@@ -62,6 +61,10 @@ elif torch.backends.mps.is_available():
     device = "mps"
 else:
     device = "cpu"
+
+os.makedirs("results", exist_ok=True)
+os.makedirs("logs", exist_ok=True)
+os.makedirs("time_results", exist_ok=True)
 
 logger.info("Using Device: %s", device)
 try:

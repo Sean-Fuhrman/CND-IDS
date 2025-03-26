@@ -113,16 +113,14 @@ def run_single_experiment(config,datastream, device):
         from FeatureExtractors.EaM import EaM
         f_e = EaM(nFeatures=datastream.nInput, nLatent=96)
         logger.info("Using EaM")
-    elif f_e == "VaDE":
-        logger.info("Using VaDE")
-    elif f_e == "CFE":
+    elif f_e == "CFE": #This is the same as ADCN feature extractor
         from FeatureExtractors.CFE import CFE
         f_e = CFE(datastream, config, device)
         logger.info("Using CFE")
-    elif f_e == "CND-IDS":
+    elif f_e == "CND_IDS":
         from FeatureExtractors.CND_IDS import CND_IDS
-        f_e = CND_IDS(datastream, config, device)
-        logger.info("Using CND-IDS")
+        f_e = CND_IDS(datastream)
+        logger.info("Using CND_IDS")
     else:
         raise ValueError(f"Feature extractor {f_e} is invalid")
 
