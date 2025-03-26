@@ -1,6 +1,11 @@
 results/*
+!results/
 time_results/*
+!time_results/
 data/*
+!data/
+logs/*
+!logs/
 
 __pycache__/*
 *.pyc
