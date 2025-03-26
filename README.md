@@ -17,7 +17,7 @@ Create a `data` directory and add datasets as subdirectories. Each dataset shoul
 
 ## Running the Code
 
-By default, you can launch experiments with:
+you can launch experiments with:
 ```bash
 python run_experiments.py
 ```
@@ -26,14 +26,14 @@ This script allows you to customize configuration options such as:
 - Anomaly scoring method 
 - Dataset 
 - Training parameters like epochs, batch size, number of experiments
-- Logging options for results and debug information
 
 You can modify these settings in the `experiment` dictionary at the top of `run_experiments.py`.
 
-To replicate CND-IDS results, you can use the following configurations:
+To replicate CND-IDS, you can use the following configurations:
+``` 
  {
-    "feature_extractor": "CND_IDS",
-    "anomaly_scoring": "PCA",
+    "feature_extractor": ["CND_IDS"],
+    "anomaly_scoring": ["PCA"],
     ...
  }
-
+```
